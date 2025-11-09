@@ -22,27 +22,17 @@ public class Teacher extends Person{
         System.out.printf("Salary %.2f \nSubject: %s\n",salary,subject);
     }
 
-    public static Teacher createTeacher(Scanner scanner){
+    public static Teacher createTeacher(Scanner filescanner){
 
-        System.out.println("Add a new Teacher");
+        String name = filescanner.nextLine().trim();
 
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
+        int age = Integer.parseInt(filescanner.nextLine().trim());
+       
+        String hobby = filescanner.nextLine().trim();
 
-        System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+        String subject = filescanner.nextLine().trim();
 
-        System.out.print("Hobby: ");
-        String hobby = scanner.nextLine();
-
-        System.out.print("Subject: ");
-        String subject = scanner.nextLine();
-
-
-        System.out.print("Salary: ");
-        double salary = scanner.nextDouble();
-        scanner.nextLine();
+        double salary = Double.parseDouble(filescanner.nextLine().trim());
 
         return new Teacher(salary, subject, name, hobby, age);
 

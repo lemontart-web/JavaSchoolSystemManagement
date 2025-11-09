@@ -1,0 +1,16 @@
+1
+John Doe
+35
+Reading
+Mathematics
+50000
+2
+Jane Smith
+20
+Sports
+Computer Science
+1001
+3
+4
+5
+6

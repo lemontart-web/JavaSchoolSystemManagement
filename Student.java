@@ -11,34 +11,23 @@ public class Student extends Person{
         super(name,hobby,age);
 
         this.studID = studID;
-        this.age = age;
         this.major = major;
         
     }
 
     
 
-    public static Student createStudent(Scanner scanner){
+    public static Student createStudent(Scanner filescanner){
 
-        System.out.println("Add a new student");
+        String name = filescanner.nextLine().trim();
 
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
+        int age = Integer.parseInt(filescanner.nextLine().trim());
+       
+        String hobby = filescanner.nextLine().trim();
 
-        System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+        String major = filescanner.nextLine().trim();
 
-        System.out.print("Hobby: ");
-        String hobby = scanner.nextLine();
-
-        System.out.print("Major: ");
-        String major = scanner.nextLine();
-
-
-        System.out.print("Student ID: ");
-        int studID = scanner.nextInt();
-        scanner.nextLine();
+        int studID = Integer.parseInt(filescanner.nextLine().trim());
 
         return new Student(major, studID, name, hobby, age);
 

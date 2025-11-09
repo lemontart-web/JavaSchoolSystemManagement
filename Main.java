@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,50 +7,54 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+
         ArrayList<Person> school = new ArrayList<>();
         ArrayList<Teacher> teachers = new ArrayList<>();
         ArrayList<Student> students = new ArrayList<>();
 
-        Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-
-            System.out.println("------School management System------");
-
-            System.out.println("1. Add Teacher \n2. Add Student \n3. View all Students \n4. View all Teachers \n5. View everyone \n6. Exit");
+        System.out.println("------School management System------");
 
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+        System.out.println("Enter Filename: ");
+        String filename = scanner.nextLine();
 
-            switch (choice) {
-                case 1:
+        try {
+            File file = new File(filename);
+            Scanner fileScanner = new Scanner(file);
+            while (fileScanner.hasNextLine()) {
+                String cmd = fileScanner.nextLine().trim();
+                if (cmd.isEmpty()) continue;
 
-                    Teacher teacher = Teacher.createTeacher(scanner);
+                switch (cmd) {
+                case "1":
+
+                    Teacher teacher = Teacher.createTeacher(fileScanner);
                     teachers.add(teacher);
                     school.add(teacher);
                     System.out.println("Teacher added successfully");
                     break;
-                case 2:
-                    Student student = Student.createStudent(scanner);
+                case "2":
+                    Student student = Student.createStudent(fileScanner);
                     students.add(student);
                     school.add(student);
                     System.out.println("student added successfully");
                     break;
 
-                case 3:
+                case "3":
                     Student.PrintAllStudents(students);
                     break;
 
-                case 4: 
+                case "4": 
                     Teacher.PrintAllTeachers(teachers);
                     break;
 
-                case 5:
+                case "5":
                     Person.printAll(school);
                     break;
 
-                case 6:
+                case "6":
                     System.out.println("Goodbye");
                     scanner.close();
                     return;
@@ -58,8 +64,17 @@ public class Main {
             }
 
 
-            
-        } 
+            }
 
+            fileScanner.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.printf("Error: %s not found", filename);
+        }
+
+        scanner.close();
+
+    
     }
+
 }

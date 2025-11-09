@@ -19,7 +19,7 @@ public class Person {
     }
 
     public static void printAll(ArrayList<Person> people){
-        System.out.println("All people");
+        System.out.println("----All people----");
         if (people.isEmpty()){
             System.out.println("No one in the system.");
         }
