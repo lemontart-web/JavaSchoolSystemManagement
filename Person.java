@@ -14,9 +14,15 @@ public class Person {
         
     }
 
-    public void displayInfo(){
-        System.out.printf("Name: %s \nAge: %s\nHobby: %s\n",name,age,hobby);
-    }
+    public void displayInfo() {
+    System.out.println("┌──────────────────────────────────┐");
+    System.out.println("│           PERSON INFO            │");
+    System.out.println("├──────────────────────────────────┤");
+    System.out.printf("│ Name:  %-25s │\n", name);
+    System.out.printf("│ Age:   %-25s │\n", age);
+    System.out.printf("│ Hobby: %-25s │\n", hobby);
+    System.out.println("└──────────────────────────────────┘");
+}
 
     public static void printAll(ArrayList<Person> people){
         System.out.println("----All people----");

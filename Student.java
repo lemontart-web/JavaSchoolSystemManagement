@@ -35,8 +35,15 @@ public class Student extends Person{
 
     @Override
     public void displayInfo(){
-        super.displayInfo();
-        System.out.printf("Student ID: %d \nMajor: %s\n",studID,major);
+        System.out.println("┌──────────────────────────────────┐");
+        System.out.println("│          STUDENT INFO            │");
+        System.out.println("├──────────────────────────────────┤");
+        System.out.printf("│ Name:  %-25s │\n", name);
+        System.out.printf("│ Age:   %-25s │\n", age);
+        System.out.printf("│ Hobby: %-25s │\n", hobby);
+        System.out.printf("│ Student ID: %-21d│\n",studID);
+        System.out.printf("│ Major: %-25s │\n",major);
+        System.out.println("└──────────────────────────────────┘");
     }
 
     public static void PrintAllStudents(ArrayList<Student> students){

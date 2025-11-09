@@ -18,8 +18,17 @@ public class Teacher extends Person{
 
     @Override 
     public void displayInfo(){
-        super.displayInfo();
-        System.out.printf("Salary %.2f \nSubject: %s\n",salary,subject);
+
+        System.out.println("┌──────────────────────────────────┐");
+        System.out.println("│          TEACHER INFO            │");
+        System.out.println("├──────────────────────────────────┤");
+        System.out.printf("│ Name:  %-25s │\n", name);
+        System.out.printf("│ Age:   %-25s │\n", age);
+        System.out.printf("│ Hobby: %-25s │\n", hobby);
+        System.out.printf("│ Salary %-26.2f│\n",salary);
+        System.out.printf("│ Subject %-24s │\n",subject);
+        System.out.println("└──────────────────────────────────┘");
+
     }
 
     public static Teacher createTeacher(Scanner filescanner){
