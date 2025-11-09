@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Student extends Person{
@@ -61,5 +62,28 @@ public class Student extends Person{
         }
     
     }
+
+
+    @Override
+    public boolean equals(Object obj){
+
+        if (!super.equals(obj)) return false;
+
+        Student student = (Student) obj;
+
+        return studID == student.studID && 
+                    Objects.equals(major, student.major);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(super.hashCode(), studID,major);
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Student{name='%s', major='%s',id=%d}",name,major,studID);
+    }
+
     
 }

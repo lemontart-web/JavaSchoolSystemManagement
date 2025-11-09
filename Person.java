@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Person {
 
-    String name, hobby;
-    int age;
+    protected String name; 
+    protected String hobby;
+    protected int age;
 
 
     public Person(String name, String hobby, int age){
@@ -27,6 +29,31 @@ public abstract class Person {
             people.get(i).displayInfo();
         }
     }
+
+    @Override
+    public boolean equals(Object obj){
+
+        if (this == obj) return true;
+
+        if (obj == null||getClass() != obj.getClass()) return false;
+
+        Person person = (Person) obj;
+
+        return age == person.age && Objects.equals(name,person.name) && Objects.equals(hobby, person.hobby);
+    }
+
+
+   @Override
+    public int hashCode() {
+        return Objects.hash(name,hobby,age);
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Person{name='%s', hobby='%s',age=%d}",name,hobby,age);
+    }
+
+    
 
 
 }

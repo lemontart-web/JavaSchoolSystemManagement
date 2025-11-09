@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Teacher extends Person{
@@ -61,6 +62,27 @@ public class Teacher extends Person{
             teachers.get(i).displayInfo();
         }
     
+    }
+
+    @Override
+    public boolean equals(Object obj){
+
+        if (!super.equals(obj)) return false;
+
+        Teacher teacher = (Teacher) obj;
+
+        return Double.compare(teacher.salary, salary) == 0 && 
+                    Objects.equals(subject, teacher.subject);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(super.hashCode(),subject,salary);
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Teacher{name='%s', subject='%s',salary=%.2f}",name,hobby,age);
     }
 
 
